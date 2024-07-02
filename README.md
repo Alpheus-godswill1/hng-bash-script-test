@@ -44,3 +44,44 @@ For a detailed explanation of the script's implementation and rationale behind e
 ---
 
 Adjust the technical article link (`#`) with your actual published article link once it's ready. This `README.md` provides a clear overview of your script, its functionality, and the documentation required for submission.
+
+Certainly! Here's a "Prerequisites" section for your article:
+
+---
+
+### Prerequisites
+
+Before you proceed with running the `create_users.sh` script, ensure you have the following prerequisites in place:
+
+1. **Linux Environment**:
+    - The script is intended to run on a Linux system. Ensure you have access to a Linux environment, such as an Ubuntu machine or a Docker container running a Linux image.
+
+2. **Administrative Privileges**:
+    - You need to have administrative (root) privileges on the machine where you will run the script. This is required to create users and groups, and to set file permissions.
+
+3. **Required Commands**:
+    - The script relies on several Linux commands that must be installed and accessible in your environment. Ensure the following commands are available:
+        - `useradd`: Used to create new user accounts.
+        - `chpasswd`: Used to change user passwords.
+        - `groupadd`: Used to create new groups.
+        - `usermod`: Used to modify user accounts.
+        - `getent`: Used to query system databases (e.g., for checking if a group exists).
+        - `openssl`: Used to generate secure random passwords.
+
+4. **Input File**:
+    - Prepare a text file containing the usernames and groups in the required format. Each line should be formatted as `username;groups` (e.g., `light;sudo,dev,www-data`).
+
+5. **Permissions for Secure Directory**:
+    - Ensure that the directory `/var/secure` can be created and that the necessary permissions can be set. This directory will store the generated passwords securely.
+
+6. **Logging Directory**:
+    - Ensure that the directory `/var/log` exists and is writable by the script. This is where the activity log will be stored.
+
+7. **Installation of OpenSSL**:
+    - OpenSSL is required for generating random passwords. Install it using the package manager of your Linux distribution if it is not already installed:
+      ```bash
+      sudo apt-get install openssl
+      ```
+
+By ensuring these prerequisites are met, you can smoothly run the `create_users.sh` script and manage user and group creation effectively.
+
